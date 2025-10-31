@@ -54,9 +54,6 @@ function ProductList() {
       <div className="products-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <div className="product-image">
-              <img src={product.imageUrl} alt={product.name} />
-            </div>
             <div className="product-info">
               <h3>{product.name}</h3>
               <p className="product-description">{product.description}</p>

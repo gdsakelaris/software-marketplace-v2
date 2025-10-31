@@ -17,7 +17,7 @@ function ProductDetail() {
     try {
       setLoading(true);
       const data = await getProduct(id);
-      setProduct(data);
+      setProduct(data.product || data);
       setError(null);
     } catch (err) {
       console.error('Error loading product:', err);
@@ -57,10 +57,6 @@ function ProductDetail() {
       </button>
 
       <div className="product-detail">
-        <div className="product-detail-image">
-          <img src={product.imageUrl} alt={product.name} />
-        </div>
-
         <div className="product-detail-info">
           <h1>{product.name}</h1>
           <p className="product-detail-description">{product.description}</p>
