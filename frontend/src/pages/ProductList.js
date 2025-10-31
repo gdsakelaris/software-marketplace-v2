@@ -15,7 +15,7 @@ function ProductList() {
     try {
       setLoading(true);
       const data = await getProducts();
-      setProducts(data);
+      setProducts(data.products || data);
       setError(null);
     } catch (err) {
       console.error('Error loading products:', err);
