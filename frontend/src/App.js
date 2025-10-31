@@ -15,7 +15,8 @@ function App() {
         <nav className="navbar">
           <div className="navbar-container">
             <a href="/" className="navbar-brand">
-              Software Sack
+              <img src="/images/Logo Square.png" alt="Software Sack Logo" className="navbar-logo" />
+              <span>Software Sack</span>
             </a>
           </div>
         </nav>
