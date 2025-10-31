@@ -6,6 +6,7 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [expandedId, setExpandedId] = useState(null);
 
   useEffect(() => {
     loadProducts();
@@ -23,6 +24,10 @@ function ProductList() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const toggleExpand = (productId) => {
+    setExpandedId(expandedId === productId ? null : productId);
   };
 
   if (loading) {
@@ -46,24 +51,45 @@ function ProductList() {
 
   return (
     <div className="product-list-container">
-      <header className="hero">
+      <header className="header">
         <h1>UFC Fight Analytics Tools</h1>
-        <p>Professional tools for UFC data analysis and fight prediction</p>
       </header>
 
-      <div className="products-grid">
+      <div className="products-list">
         {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <div className="product-info">
-              <h3>{product.name}</h3>
-              <p className="product-description">{product.description}</p>
-              <div className="product-footer">
-                <span className="price">${(product.price / 100).toFixed(2)}</span>
-                <Link to={`/product/${product.id}`} className="btn btn-primary">
-                  View Details
+          <div key={product.id} className="product-row">
+            <div className="product-main" onClick={() => toggleExpand(product.id)}>
+              <span className="product-name">{product.name}</span>
+              <span className="product-price">${(product.price / 100).toFixed(2)}</span>
+              <span className="expand-icon">{expandedId === product.id ? '▼' : '▶'}</span>
+            </div>
+
+            {expandedId === product.id && (
+              <div className="product-expanded">
+                <p className="product-description">{product.description}</p>
+
+                {product.features && product.features.length > 0 && (
+                  <div className="product-features">
+                    <strong>Features:</strong>
+                    <ul>
+                      {product.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="product-meta">
+                  {product.category && <span>Category: {product.category}</span>}
+                  {product.version && <span> | Version: {product.version}</span>}
+                  {product.fileSize && <span> | Size: {product.fileSize}</span>}
+                </div>
+
+                <Link to={`/product/${product.id}`} className="buy-link">
+                  Purchase →
                 </Link>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
