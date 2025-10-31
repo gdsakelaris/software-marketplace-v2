@@ -46,6 +46,11 @@ provider:
             - s3:PutObject
           Resource:
             - arn:aws:s3:::${env:S3_BUCKET_NAME}/*
+        - Effect: Allow
+          Action:
+            - s3:ListBucket
+          Resource:
+            - arn:aws:s3:::${env:S3_BUCKET_NAME}
 
 custom:
   productsTableName: ${self:provider.stage}-products
