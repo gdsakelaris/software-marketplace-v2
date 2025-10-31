@@ -18,7 +18,7 @@ const products = [
     id: uuidv4(),
     name: 'fight_data.csv',
     description: 'Comprehensive database of UFC fight data in CSV format. Contains thousands of historical fights, fighter statistics, outcomes, and detailed metrics. Perfect for data analysis, research, and building your own prediction models.',
-    price: 100, // $1.00 in cents
+    price: 10000, // $100.00 in cents
     features: [
       '6000+ historical UFC fights',
       'Fighter statistics and attributes',
@@ -38,7 +38,7 @@ const products = [
     id: uuidv4(),
     name: 'ufc-data-scraper.exe',
     description: 'Powerful desktop application to automatically scrape and collect UFC fight data, fighter statistics, and historical records. Extract comprehensive data from multiple sources and export to CSV for analysis.',
-    price: 100, // $1.00 in cents
+    price: 5000, // $50.00 in cents
     features: [
       'Automated data extraction from UFC sources',
       'Fighter statistics and profiles',
@@ -56,7 +56,7 @@ const products = [
     id: uuidv4(),
     name: 'ufc-fight-predictor.exe',
     description: 'Advanced machine learning-powered prediction tool for UFC fights. Analyzes fighter statistics, historical performance, and fight dynamics to generate accurate fight outcome predictions.',
-    price: 100, // $1.00 in cents
+    price: 15000, // $150.00 in cents
     features: [
       'ML-based fight outcome predictions',
       'Fighter matchup analysis',
