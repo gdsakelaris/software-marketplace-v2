@@ -1,0 +1,138 @@
+service: software-marketplace-backend
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  memorySize: 512
+  timeout: 30
+
+  # Environment variables
+  environment:
+    STRIPE_SECRET_KEY: ${env:STRIPE_SECRET_KEY}
+    STRIPE_WEBHOOK_SECRET: ${env:STRIPE_WEBHOOK_SECRET, ''}
+    S3_BUCKET_NAME: ${env:S3_BUCKET_NAME}
+    DYNAMODB_PRODUCTS_TABLE: ${self:custom.productsTableName}
+    DYNAMODB_ORDERS_TABLE: ${self:custom.ordersTableName}
+    CORS_ORIGIN: ${env:CORS_ORIGIN, '*'}
+    NODE_ENV: ${self:provider.stage}
+
+  # IAM permissions
+  iam:
+    role:
+      statements:
+        # DynamoDB permissions
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:custom.productsTableName}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:custom.ordersTableName}
+            - arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:custom.ordersTableName}/index/*
+
+
+        # S3 permissions
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource:
+            - arn:aws:s3:::${env:S3_BUCKET_NAME}/*
+
+custom:
+  productsTableName: ${self:provider.stage}-products
+  ordersTableName: ${self:provider.stage}-orders
+
+functions:
+  api:
+    handler: src/server.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+resources:
+  Resources:
+    # DynamoDB Products Table
+    ProductsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.productsTableName}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        Tags:
+          - Key: Environment
+            Value: ${self:provider.stage}
+
+    # DynamoDB Orders Table
+    OrdersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.ordersTableName}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: orderId
+            AttributeType: S
+          - AttributeName: paymentIntentId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: orderId
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: PaymentIntentIndex
+            KeySchema:
+              - AttributeName: paymentIntentId
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+        Tags:
+          - Key: Environment
+            Value: ${self:provider.stage}
+
+    # S3 Bucket for product files
+    ProductFilesBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${env:S3_BUCKET_NAME}
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+        CorsConfiguration:
+          CorsRules:
+            - AllowedOrigins:
+                - '*'
+              AllowedMethods:
+                - GET
+                - HEAD
+              AllowedHeaders:
+                - '*'
+              MaxAge: 3000
+        VersioningConfiguration:
+          Status: Enabled
+        Tags:
+          - Key: Environment
+            Value: ${self:provider.stage}
+
+plugins:
+  - serverless-offline
+
