@@ -177,13 +177,13 @@ body {
 }
 
 .btn-primary {
-  background: #f0f0f0;
-  color: #000;
-  border: 1px solid #999;
+  background: #4CAF50;
+  color: #fff;
+  border: 1px solid #45a049;
 }
 
 .btn-primary:hover {
-  background: #e0e0e0;
+  background: #45a049;
 }
 
 .btn-large {

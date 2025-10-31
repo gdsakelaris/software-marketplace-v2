@@ -59,7 +59,6 @@ function ProductDetail() {
       <div className="product-detail">
         <div className="product-detail-info">
           <h1>{product.name}</h1>
-          <p className="product-detail-description">{product.description}</p>
 
           {product.features && product.features.length > 0 && (
             <div className="features">
@@ -85,7 +84,7 @@ function ProductDetail() {
             <button onClick={handlePurchase} className="btn btn-primary btn-large">
               Purchase Now
             </button>
-            <p className="secure-note">🔒 Secure payment powered by Stripe</p>
+            <p className="secure-note">Secure payment powered by Stripe</p>
           </div>
         </div>
       </div>
