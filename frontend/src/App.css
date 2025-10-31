@@ -155,7 +155,7 @@ body {
 
 .product-expanded {
   padding: 1.5rem 2rem 2rem 2rem;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-top: 1px solid var(--border-color);
 }
 
