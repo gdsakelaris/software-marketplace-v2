@@ -5,6 +5,7 @@ import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 import Support from './pages/Support';
+import Terms from './pages/Terms';
 import './App.css';
 
 function App() {
@@ -26,11 +27,15 @@ function App() {
             <Route path="/checkout/:id" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </main>
 
         <footer className="footer">
           <p>&copy; 2025 Telescode. All rights reserved.</p>
+          <p className="footer-links">
+            <a href="/terms">Terms of Service</a> | <a href="/support">Support</a>
+          </p>
         </footer>
       </div>
     </Router>

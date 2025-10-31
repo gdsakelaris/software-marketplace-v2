@@ -80,7 +80,7 @@ function Success() {
           </a>
 
           <p className="download-note">
-            <strong>Important:</strong> Save this link. It will remain active for 24 hours.
+            <strong>Important:</strong> Download your file now. This link expires in 1 hour.
           </p>
         </div>
 
