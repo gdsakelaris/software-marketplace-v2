@@ -17,7 +17,12 @@ function ProductList() {
     try {
       setLoading(true);
       const data = await getProducts();
-      setProducts(data.products || data);
+      const productList = data.products || data;
+      // Sort products alphabetically by name
+      const sortedProducts = productList.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      setProducts(sortedProducts);
       setError(null);
     } catch (err) {
       console.error('Error loading products:', err);
