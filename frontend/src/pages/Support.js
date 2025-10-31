@@ -13,10 +13,22 @@ function Support() {
       <div className="support-content">
         <h1>Contact Support</h1>
         <div className="support-info">
-          <p>If you need assistance, please call our support line:</p>
-          <div className="phone-number">
-            <a href="tel:+12194777222">(219) 477-7222</a>
+          <p>If you need assistance, please reach out to us:</p>
+
+          <div className="contact-item">
+            <h3>Phone</h3>
+            <div className="phone-number">
+              <a href="tel:+12194777222">(219) 477-7222</a>
+            </div>
           </div>
+
+          <div className="contact-item">
+            <h3>Email</h3>
+            <div className="email-address">
+              <a href="mailto:gdsakelaris@gmail.com">gdsakelaris@gmail.com</a>
+            </div>
+          </div>
+
           <p>Our support team is here to help with any questions or issues you may have with your purchase.</p>
         </div>
       </div>

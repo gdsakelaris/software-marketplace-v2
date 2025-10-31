@@ -61,7 +61,6 @@ function Success() {
   return (
     <div className="success-container">
       <div className="success-card">
-        <div className="icon success-icon">✓</div>
         <h1>Payment Successful!</h1>
         <p className="success-message">
           Thank you for your purchase. Your payment has been processed successfully.
@@ -73,7 +72,7 @@ function Success() {
 
           <a
             href={downloadUrl}
-            className="btn btn-primary btn-large download-button"
+            className="btn btn-success btn-large download-button"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -86,16 +85,11 @@ function Success() {
         </div>
 
         <div className="next-steps">
-          <h3>What's Next?</h3>
-          <ul>
-            <li>Check your email for a receipt and download link backup</li>
-            <li>If you have any issues, please contact our support team</li>
-            <li>Explore our other products for more UFC analytics tools</li>
-          </ul>
+          <p>If you have any issues, please contact our support team</p>
         </div>
 
-        <button onClick={() => navigate('/')} className="btn btn-secondary">
-          Browse More Products
+        <button onClick={() => navigate('/')} className="back-button">
+          ← Back to Products
         </button>
       </div>
     </div>

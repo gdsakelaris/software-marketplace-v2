@@ -186,6 +186,16 @@ body {
   background: #1976D2;
 }
 
+.btn-success {
+  background: #48bb78;
+  color: #fff;
+  border: 1px solid #38a169;
+}
+
+.btn-success:hover {
+  background: #38a169;
+}
+
 .btn-large {
   padding: 0.75rem 1.5rem;
   font-size: 14px;
@@ -454,22 +464,13 @@ body {
 }
 
 .next-steps {
-  text-align: left;
+  text-align: center;
   margin: 2rem 0;
 }
 
-.next-steps h3 {
-  color: #2d3748;
-  margin-bottom: 1rem;
-}
-
-.next-steps ul {
-  color: #4a5568;
-  list-style-position: inside;
-}
-
-.next-steps li {
-  padding: 0.5rem 0;
+.next-steps p {
+  color: #718096;
+  font-size: 0.95rem;
 }
 
 /* Loading and Error States */
@@ -554,10 +555,21 @@ body {
   font-size: 14px;
 }
 
-.phone-number {
-  font-size: 2rem;
-  font-weight: bold;
+.contact-item {
   margin: 2rem 0;
+}
+
+.contact-item h3 {
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.phone-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
 }
 
 .phone-number a {
@@ -566,6 +578,20 @@ body {
 }
 
 .phone-number a:hover {
+  text-decoration: underline;
+}
+
+.email-address {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.email-address a {
+  color: #00008b;
+  text-decoration: none;
+}
+
+.email-address a:hover {
   text-decoration: underline;
 }
 
