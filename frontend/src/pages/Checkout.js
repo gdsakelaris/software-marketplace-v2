@@ -25,7 +25,7 @@ function Checkout() {
 
       // Load product details
       const productData = await getProduct(id);
-      setProduct(productData);
+      setProduct(productData.product || productData);
 
       // Create payment intent
       const { clientSecret } = await createPaymentIntent(id);

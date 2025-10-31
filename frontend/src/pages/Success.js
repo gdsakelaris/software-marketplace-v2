@@ -77,7 +77,7 @@ function Success() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            📥 Download Now
+            Download Now
           </a>
 
           <p className="download-note">
