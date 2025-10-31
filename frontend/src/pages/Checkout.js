@@ -81,7 +81,6 @@ function Checkout() {
         <div className="checkout-summary">
           <h2>Order Summary</h2>
           <div className="summary-item">
-            <img src={product.imageUrl} alt={product.name} className="summary-image" />
             <div>
               <h3>{product.name}</h3>
               <p className="summary-price">${(product.price / 100).toFixed(2)}</p>

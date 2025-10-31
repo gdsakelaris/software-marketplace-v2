@@ -524,6 +524,76 @@ body {
   margin: 0.25rem 0;
 }
 
+/* Support Page */
+.support-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.support-content {
+  background: white;
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
+
+.support-content h1 {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+}
+
+.support-info {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.support-info p {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.phone-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
+.phone-number a {
+  color: #00008b;
+  text-decoration: none;
+}
+
+.phone-number a:hover {
+  text-decoration: underline;
+}
+
+.support-link {
+  color: #00008b;
+  text-decoration: none;
+}
+
+.support-link:hover {
+  text-decoration: underline;
+}
+
+.btn-no-bg {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background: none;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  color: #000;
+}
+
+.btn-no-bg:hover {
+  background: #f8f8f8;
+  text-decoration: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header h1 {

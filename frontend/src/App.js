@@ -4,6 +4,7 @@ import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
+import Support from './pages/Support';
 import './App.css';
 
 function App() {
@@ -24,12 +25,12 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/checkout/:id" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </main>
 
         <footer className="footer">
-          <p>&copy; 2025 Software Sack. All rights reserved.</p>
-          <p>Secure payments powered by Stripe</p>
+          <p>&copy; 2025 Telescode. All rights reserved.</p>
         </footer>
       </div>
     </Router>

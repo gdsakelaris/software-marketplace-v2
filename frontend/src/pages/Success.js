@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { getDownloadUrl } from '../utils/api';
 
 function Success() {
@@ -48,10 +48,9 @@ function Success() {
     return (
       <div className="success-container">
         <div className="success-card error">
-          <div className="icon">❌</div>
           <h1>Payment Confirmation Error</h1>
-          <p>{error}</p>
-          <button onClick={() => navigate('/')} className="btn btn-primary">
+          <p>Failed to retrieve download link. Please <Link to="/support" className="support-link">contact support</Link> with your payment confirmation.</p>
+          <button onClick={() => navigate('/')} className="btn btn-no-bg">
             Return to Store
           </button>
         </div>

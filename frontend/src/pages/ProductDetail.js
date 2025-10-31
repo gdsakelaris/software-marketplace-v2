@@ -60,17 +60,6 @@ function ProductDetail() {
         <div className="product-detail-info">
           <h1>{product.name}</h1>
 
-          {product.features && product.features.length > 0 && (
-            <div className="features">
-              <h3>Features:</h3>
-              <ul>
-                {product.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
           <div className="product-meta">
             {product.fileSize && (
               <div className="meta-item">
