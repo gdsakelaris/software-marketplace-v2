@@ -303,7 +303,7 @@ body {
 }
 
 .product-meta {
-  background: var(--bg-secondary);
+  background: #f9fafb;
   padding: 1rem 1.25rem;
   border-radius: 8px;
   margin-bottom: 2rem;
@@ -373,7 +373,7 @@ body {
   display: flex;
   gap: 1rem;
   padding: 1.25rem;
-  background: var(--bg-secondary);
+  background: #f9fafb;
   border-radius: 8px;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border-color);
@@ -485,7 +485,7 @@ body {
 }
 
 .download-section {
-  background: var(--bg-secondary);
+  background: #f9fafb;
   padding: 2rem;
   border-radius: 12px;
   margin: 2rem 0;
@@ -645,7 +645,7 @@ body {
 .contact-item {
   margin: 2.5rem 0;
   padding: 2rem;
-  background: var(--bg-secondary);
+  background: #f9fafb;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
