@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: uuidv4(),
-    name: 'UFC Data Scraper.exe',
+    name: 'ufc-data-scraper.exe',
     description: 'Powerful desktop application to automatically scrape and collect UFC fight data, fighter statistics, and historical records. Extract comprehensive data from multiple sources and export to CSV for analysis.',
     price: 100, // $1.00 in cents
     features: [
@@ -54,7 +54,7 @@ const products = [
   },
   {
     id: uuidv4(),
-    name: 'UFC Fight Predictor.exe',
+    name: 'ufc-fight-predictor.exe',
     description: 'Advanced machine learning-powered prediction tool for UFC fights. Analyzes fighter statistics, historical performance, and fight dynamics to generate accurate fight outcome predictions.',
     price: 100, // $1.00 in cents
     features: [

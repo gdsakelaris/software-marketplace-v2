@@ -43,7 +43,7 @@ function Terms() {
           <p>For questions or support, contact us at <a href="mailto:gdsakelaris@gmail.com">gdsakelaris@gmail.com</a> or call <a href="tel:+12194777222">(219) 477-7222</a>.</p>
         </section>
 
-        <p className="terms-footer">Last updated: January 2025</p>
+        <p className="terms-footer">Last updated: October 2025</p>
       </div>
     </div>
   );
