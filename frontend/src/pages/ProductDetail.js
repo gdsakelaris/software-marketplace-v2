@@ -73,16 +73,6 @@ function ProductDetail() {
           )}
 
           <div className="product-meta">
-            {product.category && (
-              <div className="meta-item">
-                <strong>Category:</strong> {product.category}
-              </div>
-            )}
-            {product.version && (
-              <div className="meta-item">
-                <strong>Version:</strong> {product.version}
-              </div>
-            )}
             {product.fileSize && (
               <div className="meta-item">
                 <strong>File Size:</strong> {product.fileSize}

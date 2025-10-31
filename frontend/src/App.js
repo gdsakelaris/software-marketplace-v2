@@ -13,7 +13,7 @@ function App() {
         <nav className="navbar">
           <div className="navbar-container">
             <a href="/" className="navbar-brand">
-              UFC Fight Analytics Store
+              Software Sack
             </a>
           </div>
         </nav>
@@ -28,7 +28,7 @@ function App() {
         </main>
 
         <footer className="footer">
-          <p>&copy; 2025 UFC Fight Analytics. All rights reserved.</p>
+          <p>&copy; 2025 Software Sack. All rights reserved.</p>
           <p>Secure payments powered by Stripe</p>
         </footer>
       </div>

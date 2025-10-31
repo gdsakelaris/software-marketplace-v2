@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../utils/api';
 
 function ProductList() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -52,7 +53,7 @@ function ProductList() {
   return (
     <div className="product-list-container">
       <header className="header">
-        <h1>UFC Fight Analytics Tools</h1>
+        <h1>Products</h1>
       </header>
 
       <div className="products-list">
@@ -80,14 +81,15 @@ function ProductList() {
                 )}
 
                 <div className="product-meta">
-                  {product.category && <span>Category: {product.category}</span>}
-                  {product.version && <span> | Version: {product.version}</span>}
-                  {product.fileSize && <span> | Size: {product.fileSize}</span>}
+                  {product.fileSize && <span>Size: {product.fileSize}</span>}
                 </div>
 
-                <Link to={`/product/${product.id}`} className="buy-link">
-                  Purchase →
-                </Link>
+                <button
+                  onClick={() => navigate(`/product/${product.id}`)}
+                  className="btn btn-primary"
+                >
+                  Purchase
+                </button>
               </div>
             )}
           </div>
