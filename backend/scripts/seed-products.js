@@ -11,11 +11,32 @@ const PRODUCTS_TABLE = process.env.DYNAMODB_PRODUCTS_TABLE || 'products';
 
 /**
  * UFC Analytics Products
+ * Sorted by file type (.csv, .exe)
  */
 const products = [
   {
     id: uuidv4(),
-    name: 'UFC Data Scraper',
+    name: 'fight_data.csv',
+    description: 'Comprehensive database of UFC fight data in CSV format. Contains thousands of historical fights, fighter statistics, outcomes, and detailed metrics. Perfect for data analysis, research, and building your own prediction models.',
+    price: 100, // $1.00 in cents
+    features: [
+      '6000+ historical UFC fights',
+      'Fighter statistics and attributes',
+      'Fight outcomes and methods',
+      'Striking and grappling statistics',
+      'Event dates and locations',
+      'Ready for data analysis and ML',
+    ],
+    s3Key: 'products/fight_data.csv',
+    category: 'UFC Analytics Data',
+    version: '1.0.0',
+    fileSize: '3.8 MB',
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+  },
+  {
+    id: uuidv4(),
+    name: 'UFC Data Scraper.exe',
     description: 'Powerful desktop application to automatically scrape and collect UFC fight data, fighter statistics, and historical records. Extract comprehensive data from multiple sources and export to CSV for analysis.',
     price: 100, // $1.00 in cents
     features: [
@@ -33,7 +54,7 @@ const products = [
   },
   {
     id: uuidv4(),
-    name: 'UFC Fight Predictor',
+    name: 'UFC Fight Predictor.exe',
     description: 'Advanced machine learning-powered prediction tool for UFC fights. Analyzes fighter statistics, historical performance, and fight dynamics to generate accurate fight outcome predictions.',
     price: 100, // $1.00 in cents
     features: [
@@ -47,26 +68,6 @@ const products = [
     category: 'UFC Analytics Tools',
     version: '1.0.0',
     fileSize: '179.5 MB',
-    createdAt: Date.now(),
-    updatedAt: Date.now(),
-  },
-  {
-    id: uuidv4(),
-    name: 'UFC Fight Data CSV',
-    description: 'Comprehensive database of UFC fight data in CSV format. Contains thousands of historical fights, fighter statistics, outcomes, and detailed metrics. Perfect for data analysis, research, and building your own prediction models.',
-    price: 100, // $1.00 in cents
-    features: [
-      '6000+ historical UFC fights',
-      'Fighter statistics and attributes',
-      'Fight outcomes and methods',
-      'Striking and grappling statistics',
-      'Event dates and locations',
-      'Ready for data analysis and ML',
-    ],
-    s3Key: 'products/fight_data.csv',
-    category: 'UFC Analytics Data',
-    version: '1.0.0',
-    fileSize: '3.8 MB',
     createdAt: Date.now(),
     updatedAt: Date.now(),
   },
