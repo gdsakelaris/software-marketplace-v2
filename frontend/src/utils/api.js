@@ -19,7 +19,9 @@ export const createPaymentIntent = async (productId) => {
   return response.data;
 };
 
-export const getDownloadUrl = async (orderId) => {
-  const response = await axios.get(`${API_URL}/download/${orderId}`);
+export const getDownloadUrl = async (paymentIntentId) => {
+  const response = await axios.post(`${API_URL}/confirm-payment`, {
+    paymentIntentId,
+  });
   return response.data;
 };
